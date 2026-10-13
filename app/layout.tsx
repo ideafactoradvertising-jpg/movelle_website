@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 const description =
-  'Discover Reformer, Cadillac and Mat Pilates at Movelle Studio in Makati City. Explore small-group, private and duet sessions. Enquire about classes.';
+  'Discover Reformer, Cadillac, Mat and Red Light Therapy Pilates at Movelle Studio in Makati City. Explore small-group, private and duet sessions.';
 
 export const metadata: Metadata = {
   title: {
