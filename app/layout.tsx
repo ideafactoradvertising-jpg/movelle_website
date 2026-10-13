@@ -1,6 +1,3 @@
-Replace everything in **`app/layout.tsx`** with:
-
-```tsx
 import type { Metadata } from 'next';
 import './globals.css';
 
@@ -14,13 +11,8 @@ export const metadata: Metadata = {
   },
   description,
   metadataBase: new URL('https://www.movelle.ph'),
-  alternates: {
-    canonical: '/',
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  alternates: { canonical: '/' },
+  robots: { index: true, follow: true },
   openGraph: {
     title: 'Movelle Studio | Pilates in Makati',
     description,
@@ -39,6 +31,3 @@ export default function RootLayout({
     </html>
   );
 }
-```
-
-Click **Commit changes**, commit to **main**, then wait for Vercel to show **Ready**.
