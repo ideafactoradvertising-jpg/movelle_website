@@ -238,3 +238,28 @@
 .offering-photo{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border:1px solid #dcd5cc;box-shadow:0 6px 22px rgba(41,40,39,.08);margin-bottom:22px}
 .offering-photo-note{grid-column:1/-1;font-size:.75rem;color:#655d55;margin-top:-18px}
 @media(max-width:760px){.offering-photo{aspect-ratio:16/9}}
+
+/* Discourage casual text selection and image saving */
+body {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+img {
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Keep contact information and form fields selectable */
+address,
+.contact-directory p,
+a[href^="mailto:"],
+a[href^="tel:"],
+input,
+textarea {
+  -webkit-user-select: text;
+  user-select: text;
+  -webkit-touch-callout: default;
+}
