@@ -27,4 +27,4 @@ export const offerings = [
 {title:'Private Studio Rental',group:'Gather at Movelle',text:'Make Movelle yours for a moment. Our studio is available for intimate private gatherings, wellness events, and special celebrations.'},
 {title:'Celebrate With Movelle',group:'Gather at Movelle',text:'Spend your birthday with us and turn your celebration into a private movement and wellness experience with the people you love.'}
 ];
-export const address='2887 Pertierra St., Makati City, 1210 Metro Manila, Philippines';
+export const address='2F, 2887 Pertierra, Poblacion, Makati City, 1210 Metro Manila';
