@@ -442,3 +442,18 @@ textarea {
     padding-right: 0;
   }
 }
+/* Burgundy Pilates benefits section */
+.pilates-benefits {
+  background: var(--maroon);
+  color: var(--cream);
+  border-bottom: 0;
+}
+
+.pilates-benefits .section-heading > p,
+.pilates-benefits .benefit-grid p {
+  color: #eadcda;
+}
+
+.pilates-benefits .benefit-grid article {
+  border-top-color: rgba(245, 242, 236, .35);
+}
