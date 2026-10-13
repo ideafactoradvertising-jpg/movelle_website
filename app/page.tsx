@@ -156,9 +156,13 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="benefit-grid">
-            {benefits.map(benefit => (
+                   <div className="benefit-grid">
+            {benefits.map((benefit, index) => (
               <article key={benefit.title}>
+                <span
+                  className={`benefit-illustration benefit-illustration-${index}`}
+                  aria-hidden="true"
+                />
                 <h3>{benefit.title}</h3>
                 <p>{benefit.text}</p>
               </article>
