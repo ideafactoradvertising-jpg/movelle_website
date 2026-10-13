@@ -457,3 +457,45 @@ textarea {
 .pilates-benefits .benefit-grid article {
   border-top-color: rgba(245, 242, 236, .35);
 }
+/* Cream illustrations above Pilates benefits */
+.benefit-illustration {
+  display: block;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 22px;
+  background-color: var(--cream);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.benefit-illustration-0 {
+  -webkit-mask-image: url('/benefits/strength-control.png');
+  mask-image: url('/benefits/strength-control.png');
+}
+
+.benefit-illustration-1 {
+  -webkit-mask-image: url('/benefits/mobility-flexibility.png');
+  mask-image: url('/benefits/mobility-flexibility.png');
+}
+
+.benefit-illustration-2 {
+  -webkit-mask-image: url('/benefits/balance-coordination.png');
+  mask-image: url('/benefits/balance-coordination.png');
+}
+
+.benefit-illustration-3 {
+  -webkit-mask-image: url('/benefits/body-awareness.png');
+  mask-image: url('/benefits/body-awareness.png');
+}
+
+@media (max-width: 760px) {
+  .benefit-illustration {
+    width: 130px;
+    height: 130px;
+    margin-bottom: 18px;
+  }
+}
