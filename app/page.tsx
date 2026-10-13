@@ -166,29 +166,6 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="experience section" id="experience">
-          <p className="eyebrow">THE MOVELLE EXPERIENCE</p>
-          <h2>Less rush.<br /><em>More presence.</em></h2>
-
-          <div className="experience-grid">
-            <article>
-              <span>01 /</span>
-              <h3>Thoughtful guidance</h3>
-              <p>Personal attention and a considered approach to your movement.</p>
-            </article>
-            <article>
-              <span>02 /</span>
-              <h3>Room to breathe</h3>
-              <p>A calm space to pause and focus on your practice.</p>
-            </article>
-            <article>
-              <span>03 /</span>
-              <h3>Movement that stays</h3>
-              <p>A practice that becomes part of living well, beyond the studio.</p>
-            </article>
-          </div>
-        </section>
-
         <section className="studio" id="studio">
           <div className="studio-photo">
             <StudioScene kind="reception" />
