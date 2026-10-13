@@ -1,13 +1,44 @@
+Replace everything in **`app/layout.tsx`** with:
+
+```tsx
 import type { Metadata } from 'next';
 import './globals.css';
+
+const description =
+  'Discover Reformer, Cadillac and Mat Pilates at Movelle Studio in Makati City. Explore small-group, private and duet sessions. Enquire about classes.';
+
 export const metadata: Metadata = {
-  title: {default:'MOVELLE STUDIO — Move well. Live better.',template:'%s — Movelle Studio'},
-  description: 'A considered approach to movement. Discover Movelle Studio, a boutique movement studio for Pilates, yoga and mindful wellness in Makati, Philippines.',
+  title: {
+    default: 'Movelle Studio | Pilates in Makati',
+    template: '%s | Movelle Studio',
+  },
+  description,
   metadataBase: new URL('https://www.movelle.ph'),
-  alternates: { canonical: '/' },
-  robots: { index: true, follow: true },
-  openGraph: {title: 'MOVELLE STUDIO', description: 'Move well. Live better.', type: 'website'},
+  alternates: {
+    canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    title: 'Movelle Studio | Pilates in Makati',
+    description,
+    url: 'https://www.movelle.ph',
+    siteName: 'Movelle Studio',
+    type: 'website',
+  },
 };
-export default function RootLayout({ children }: Readonly<{children: React.ReactNode}>) {
- return <html lang="en"><body>{children}</body></html>;
+
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <html lang="en">
+      <body>{children}</body>
+    </html>
+  );
 }
+```
+
+Click **Commit changes**, commit to **main**, then wait for Vercel to show **Ready**.
