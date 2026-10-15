@@ -128,8 +128,15 @@ export default function Home() {
                 <p className="eyebrow">{c.tag}</p>
                 <h3>{c.title}</h3>
                 <p>{c.text}</p>
-                <a className="text-link" href="/book-a-class">
-                  Enquire about classes <ArrowIcon />
+                <a
+                  className="text-link"
+                  href={['Pre & Postnatal Pilates', 'Pilates for Scoliosis'].includes(c.title)
+                    ? 'mailto:hello@movelle.ph?subject=' + encodeURIComponent(c.title + ' enquiry')
+                    : '/book-a-class#schedule'}
+                >
+                  {['Pre & Postnatal Pilates', 'Pilates for Scoliosis'].includes(c.title)
+                    ? 'Enquire'
+                    : c.title === 'Cadillac Pilates' ? 'Book a Session' : 'Book a Class'} <ArrowIcon />
                 </a>
               </article>
             ))}
@@ -267,11 +274,11 @@ export default function Home() {
           <h2>Begin your <em>practice.</em></h2>
           <a
             className="button light"
-            href="mailto:hello@movelle.ph?subject=Class%20enquiry"
+            href="/book-a-class#schedule"
           >
-            Enquire about a class <ArrowIcon />
+            Book a Class <ArrowIcon />
           </a>
-          <p>Get in touch to find your class and plan your visit.</p>
+          <p>Explore the schedule and find your next practice.</p>
         </section>
       </main>
 

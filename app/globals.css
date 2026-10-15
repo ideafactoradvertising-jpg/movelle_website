@@ -499,3 +499,28 @@ textarea {
     margin-bottom: 18px;
   }
 }
+
+/* Rezerv booking page */
+.schedule-intro{padding-top:64px;padding-bottom:32px;max-width:1050px}
+.inner-page .schedule-intro h1{font-size:clamp(2.7rem,5.2vw,5rem);max-width:900px}
+.schedule-intro>p:last-child{max-width:650px;margin-top:24px;color:#655d55}
+.schedule-section{padding:0 7% 56px;scroll-margin-top:24px}
+.schedule-heading{margin-bottom:24px;max-width:760px}
+.schedule-heading h2{font-size:clamp(1.6rem,2.3vw,2.2rem);margin-bottom:12px}
+.schedule-heading p{font-size:.85rem;color:#655d55}
+.rezerv-timetable{display:block;width:100%;height:1080px;border:0;background:var(--cream)}
+.schedule-fallback{font-size:.85rem;margin-top:20px;color:#655d55}
+.schedule-fallback a{color:var(--maroon);text-decoration:underline;text-underline-offset:4px}
+.booking-support{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8%;background:#eae5de}
+.booking-support h2{font-size:clamp(2rem,3.2vw,3.2rem)}
+.booking-support article>p:not(.eyebrow){margin-top:24px;max-width:560px;color:#655d55}
+@media(max-width:760px){
+  .schedule-intro{padding-top:40px;padding-bottom:28px}
+  .inner-page .schedule-intro h1{font-size:clamp(2.5rem,10vw,3.5rem)}
+  .schedule-intro>p:last-child{margin-top:18px}
+  .schedule-section{padding:0 4% 36px}
+  .schedule-heading,.schedule-fallback{padding-left:3%;padding-right:3%}
+  .rezerv-timetable{height:1080px}
+  .booking-support{grid-template-columns:1fr;gap:36px}
+  .booking-support article>p:not(.eyebrow){margin-top:18px}
+}
