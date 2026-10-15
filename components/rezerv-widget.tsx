@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const widgetOrigin = 'https://widgets.rezerv.co';
 const widgetUrl = `${widgetOrigin}/timetable?${new URLSearchParams({
@@ -36,6 +36,21 @@ const utmKeys = ['utm_source', 'utm_campaign', 'utm_medium', 'utm_term', 'utm_co
 
 export default function RezervWidget() {
   const iframeRef = useRef<HTMLIFrameElement>(null);
+  const [responsiveUrl, setResponsiveUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    const screen = window.matchMedia('(max-width: 760px)');
+    const updateLayout = () => {
+      const url = new URL(widgetUrl);
+      const layout = screen.matches ? 'list' : 'grid';
+      url.searchParams.set('layout', layout);
+      url.searchParams.set('scheduleViewType', layout);
+      setResponsiveUrl(url.toString());
+    };
+    updateLayout();
+    screen.addEventListener('change', updateLayout);
+    return () => screen.removeEventListener('change', updateLayout);
+  }, []);
 
   useEffect(() => {
     const iframe = iframeRef.current;
@@ -74,14 +89,18 @@ export default function RezervWidget() {
       window.removeEventListener('message', onMessage);
       timers.forEach(timer => window.clearTimeout(timer));
     };
-  }, []);
+  }, [responsiveUrl]);
+
+  if (!responsiveUrl) {
+    return <div className="rezerv-loading" role="status">Loading the schedule…</div>;
+  }
 
   return (
     <iframe
       ref={iframeRef}
       id="rezerv-widget-iframe"
       title="Movelle class schedule and private-session appointments"
-      src={widgetUrl}
+      src={responsiveUrl}
       className="rezerv-timetable"
       width="100%"
       height="1080"
