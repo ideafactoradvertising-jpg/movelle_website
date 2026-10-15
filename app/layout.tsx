@@ -5,6 +5,24 @@ import './globals.css';
 const description =
   'Discover Reformer, Cadillac, Mat and Red Light Therapy Pilates at Movelle Studio in Makati City. Explore small-group, private and duet sessions.';
 
+const studioStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ExerciseGym',
+  '@id': 'https://www.movelle.ph/#studio',
+  name: 'Movelle Studio',
+  url: 'https://www.movelle.ph',
+  description,
+  email: 'hello@movelle.ph',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '2F, 2887 Pertierra, Poblacion',
+    addressLocality: 'Makati City',
+    addressRegion: 'Metro Manila',
+    postalCode: '1210',
+    addressCountry: 'PH',
+  },
+};
+
 export const metadata: Metadata = {
   title: {
     default: 'Movelle Studio | Pilates in Makati',
@@ -54,6 +72,18 @@ export default function RootLayout({
             title="Google Tag Manager"
           />
         </noscript>
+
+        <script
+          id="movelle-studio-structured-data"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(studioStructuredData).replace(
+              /</g,
+              '\\u003c'
+            ),
+          }}
+        />
+
         {children}
       </body>
     </html>
