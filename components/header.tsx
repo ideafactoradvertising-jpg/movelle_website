@@ -1,7 +1,7 @@
 'use client';
 import ArrowIcon from '@/components/arrow-icon';
 import { useState, useEffect } from 'react';
-const links = [['Home','/'],['About','/about'],['Classes','/classes'],['Contact','/contact']];
+const links = [['Home','/'],['About','/about'],['Classes','/classes'],['Packages','/packages'],['Contact','/contact']];
 export default function Header() {
  const [open,setOpen] = useState(false);
  useEffect(()=>{const close=(e:KeyboardEvent)=>{if(e.key==='Escape')setOpen(false)};window.addEventListener('keydown',close);return()=>window.removeEventListener('keydown',close)},[]);
