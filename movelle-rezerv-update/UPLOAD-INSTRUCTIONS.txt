@@ -1,0 +1,43 @@
+MOVELLE REZERV UPDATE — 24 NOVEMBER 2026
+
+UPLOAD ALL 10 FILES TOGETHER
+1. Download and unzip movelle-rezerv-update.zip.
+2. Open the main page of your GitHub repository.
+3. Choose Add file > Upload files.
+4. Drag the extracted app and components folders into the upload area.
+5. Confirm the paths begin app/ and components/. Do not upload a containing folder.
+6. Commit to main with the message: Connect available classes to Rezerv and add Couple Pilates.
+7. Wait for Vercel Ready for that commit.
+8. Check /classes, /book-a-class, /contact and /privacy-policy on desktop and phone.
+
+WHAT CHANGES
+- Reformer, Red Light Therapy, Private and Couple Pilates link directly to their verified Rezerv class pages.
+- Couple Pilates is added as a separate offering: 50 minutes; up to two couples (four participants).
+- Couple uses the existing duet Pilates concept image. No new image upload is needed.
+- Cadillac, Mat, Yoga, Duet, specialised sessions, rental and celebrations remain Enquire.
+- The empty Appointments tab is hidden. Private Class 1:1 is accessed through Classes.
+- Booking instructions and homepage FAQs reflect Rezerv, with package and booking-management links.
+- Phone and WhatsApp links match the public Rezerv contact details: +63 945 806 2917.
+- The missing privacy-policy route is restored and both policy routes are included in the sitemap.
+
+HOW CUSTOMERS MANAGE BOOKINGS
+The verified public Rezerv flow opens login after selecting My Bookings. The website link opens Rezerv, and the booking page explains that next step. No unverified direct login URL is invented.
+
+CHECKS
+TypeScript check passed and git diff --check passed.
+The four Rezerv class destinations were verified in the browser.
+Local Next.js page rendering did not finish within the preview check, so mobile layout and production rendering need checking after deployment. No purchase, payment, credit deduction, cancellation or confirmation notification was tested.
+
+STILL NEEDED FROM MOVELLE
+- Publish the dated class sessions in Rezerv when ready. Catalogue entries alone do not populate the schedule.
+- Confirm the right packages cover each class, including Couple Pilates and Cadillac Signature Duo.
+- Set matching cancellation/expiry rules and enable/test notifications inside Rezerv.
+- Review privacy retention and consent practices. Publishing a notice does not itself configure analytics consent.
+- Your public Rezerv site still has a Team link; hide it there if you want no instructor/team page.
+
+ROLLBACK
+The separate movelle-rezerv-rollback.zip restores the eight changed existing files.
+Upload those app and components folders, remove the two files added by this update (app/privacy-policy/page.tsx and components/rezerv-links.ts), then commit the restoration. Restore the existing files before removing the shared links file.
+Record this update's GitHub commit so you can find the before/after versions in History.
+
+This package changes no pricing, payment settings, schedule dates, package eligibility or notification settings in Rezerv. It changes no homepage images, global CSS, root layout, Google Tag Manager, or package widget.
