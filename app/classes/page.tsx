@@ -4,6 +4,7 @@ import Link from 'next/link';
 import PageShell from '@/components/page-shell';
 import { offerings } from '@/components/content';
 import ArrowIcon from '@/components/arrow-icon';
+import { getRezervClassLink } from '@/components/rezerv-links';
 
 export const metadata: Metadata = {
   alternates: { canonical: '/classes' },
@@ -12,65 +13,20 @@ export const metadata: Metadata = {
     'Explore Reformer, Cadillac, Mat and Red Light Therapy Pilates, plus yoga, private and duet sessions, and personalised movement experiences.',
 };
 
-const photos = [
-  {
-    file: 'reformer-pilates',
-    alt: 'Small-group Reformer Pilates with an instructor guiding participants through a bridge exercise',
-  },
-  {
-    file: 'cadillac-pilates',
-    alt: 'Instructor guiding a participant through a leg exercise on a Cadillac Pilates apparatus',
-  },
-  {
-    file: 'red-light-pilates',
-    alt: 'Participant using Reformer straps beside a red light panel',
-  },
-  {
-    file: 'mat-pilates',
-    alt: 'Participant lying on a Pilates mat with knees raised for a controlled movement exercise',
-  },
-  {
-    file: 'private-pilates',
-    alt: 'Instructor providing individual guidance during a seated Reformer Pilates exercise',
-  },
-  {
-    file: 'duet-pilates',
-    alt: 'Two participants practising seated Reformer Pilates with instructor guidance',
-  },
-  {
-    file: 'prenatal-pilates',
-    alt: 'Instructor supporting a participant during a seated Pilates movement on a Reformer',
-  },
-  {
-    file: 'scoliosis-pilates',
-    alt: 'Instructor guiding a seated participant through an arm movement on a Reformer',
-  },
-  {
-    file: 'yoga',
-    alt: 'Participants seated cross-legged on yoga mats in a sunlit studio',
-  },
-  {
-    file: 'studio-rental',
-    alt: 'Sunlit movement studio arranged with Reformers, exercise mats, blocks and Pilates balls',
-  },
-  {
-    file: 'celebrate-movelle',
-    alt: 'Friends gathering in a Pilates studio decorated with flowers for a celebration',
-  },
-];
-
-const enquiryOnly = new Set([
-  'Private Studio Rental',
-  'Celebrate With Movelle',
-  'Pre & Postnatal Pilates',
-  'Pilates for Scoliosis',
-]);
-
-const personalSessions = new Set([
-  'Cadillac Pilates',
-  'Private Pilates',
-  'Duet Pilates',
-]);
+const photos: Partial<Record<string, { file: string; alt: string }>> = {
+  'Reformer Pilates': { file: 'reformer-pilates', alt: 'Small-group Reformer Pilates with an instructor guiding participants through a bridge exercise' },
+  'Cadillac Pilates': { file: 'cadillac-pilates', alt: 'Instructor guiding a participant through a leg exercise on a Cadillac Pilates apparatus' },
+  'Red Light Therapy Pilates': { file: 'red-light-pilates', alt: 'Participant using Reformer straps beside a red light panel' },
+  'Mat Pilates': { file: 'mat-pilates', alt: 'Participant lying on a Pilates mat with knees raised for a controlled movement exercise' },
+  'Private Pilates': { file: 'private-pilates', alt: 'Instructor providing individual guidance during a seated Reformer Pilates exercise' },
+  'Couple Pilates': { file: 'duet-pilates', alt: 'Two participants practising seated Reformer Pilates with instructor guidance' },
+  'Duet Pilates': { file: 'duet-pilates', alt: 'Two participants practising seated Reformer Pilates with instructor guidance' },
+  'Pre & Postnatal Pilates': { file: 'prenatal-pilates', alt: 'Instructor supporting a participant during a seated Pilates movement on a Reformer' },
+  'Pilates for Scoliosis': { file: 'scoliosis-pilates', alt: 'Instructor guiding a seated participant through an arm movement on a Reformer' },
+  'Yoga': { file: 'yoga', alt: 'Participants seated cross-legged on yoga mats in a sunlit studio' },
+  'Private Studio Rental': { file: 'studio-rental', alt: 'Sunlit movement studio arranged with Reformers, exercise mats, blocks and Pilates balls' },
+  'Celebrate With Movelle': { file: 'celebrate-movelle', alt: 'Friends gathering in a Pilates studio decorated with flowers for a celebration' },
+};
 
 export default function Classes() {
   return (
@@ -98,18 +54,11 @@ export default function Classes() {
 
       <section className="offering-grid section">
         {offerings.map((offering, index) => {
-          const photo = photos[index];
-          const needsEnquiry = enquiryOnly.has(offering.title);
-          const href = needsEnquiry
-            ? 'mailto:hello@movelle.ph?subject=' +
-              encodeURIComponent(offering.title + ' enquiry')
-            : '/book-a-class#schedule';
-
-          const label = needsEnquiry
-            ? 'Enquire'
-            : personalSessions.has(offering.title)
-              ? 'Book a Session'
-              : 'Book a Class';
+          const photo = photos[offering.title];
+          const bookingHref = getRezervClassLink(offering.title);
+          const needsEnquiry = !bookingHref;
+          const href = bookingHref ?? 'mailto:hello@movelle.ph?subject=' + encodeURIComponent(offering.title + ' enquiry');
+          const label = needsEnquiry ? 'Enquire' : offering.title === 'Private Pilates' ? 'Book a Session' : 'Book a Class';
 
           return (
             <article key={offering.title}>
@@ -139,13 +88,15 @@ export default function Classes() {
                   {label} <ArrowIcon />
                 </a>
               ) : (
-                <Link
+                <a
                   className="text-link"
                   href={href}
-                  aria-label={`${label}: ${offering.title}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${label}: ${offering.title} on Rezerv (opens in a new tab)`}
                 >
                   {label} <ArrowIcon />
-                </Link>
+                </a>
               )}
             </article>
           );

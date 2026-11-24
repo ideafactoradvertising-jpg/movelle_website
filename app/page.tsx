@@ -2,7 +2,8 @@ import ArrowIcon from '@/components/arrow-icon';
 import Image from 'next/image';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
-import { address } from '@/components/content';
+import { address, offerings } from '@/components/content';
+import { getRezervClassLink } from '@/components/rezerv-links';
 import StudioScene from '@/components/studio-scene';
 
 const classes = [
@@ -130,13 +131,12 @@ export default function Home() {
                 <p>{c.text}</p>
                 <a
                   className="text-link"
-                  href={['Pre & Postnatal Pilates', 'Pilates for Scoliosis'].includes(c.title)
-                    ? 'mailto:hello@movelle.ph?subject=' + encodeURIComponent(c.title + ' enquiry')
-                    : '/book-a-class#schedule'}
+                  href={getRezervClassLink(c.title) ?? 'mailto:hello@movelle.ph?subject=' + encodeURIComponent(c.title + ' enquiry')}
+                  target={getRezervClassLink(c.title) ? '_blank' : undefined}
+                  rel={getRezervClassLink(c.title) ? 'noopener noreferrer' : undefined}
+                  aria-label={getRezervClassLink(c.title) ? `Book ${c.title} on Rezerv (opens in a new tab)` : `Enquire about ${c.title}`}
                 >
-                  {['Pre & Postnatal Pilates', 'Pilates for Scoliosis'].includes(c.title)
-                    ? 'Enquire'
-                    : c.title === 'Cadillac Pilates' ? 'Book a Session' : 'Book a Class'} <ArrowIcon />
+                  {getRezervClassLink(c.title) ? 'Book a Class' : 'Enquire'} <ArrowIcon />
                 </a>
               </article>
             ))}
@@ -144,7 +144,7 @@ export default function Home() {
 
           <p className="draft-note">
             <a href="/classes">
-              Explore 5 more classes &amp; experiences →
+              Explore {offerings.length - classes.length} more classes &amp; experiences →
             </a>
           </p>
         </section>
@@ -215,7 +215,7 @@ export default function Home() {
                   looking for. Contact our team to discuss the class or session
                   that may suit you.
                 </p>
-                <a href="/book-a-class">Enquire about your first session →</a>
+                <a href="/book-a-class">Explore the booking schedule →</a>
               </div>
             </details>
 
@@ -239,23 +239,27 @@ export default function Home() {
               <div className="faq-answer">
                 <p>
                   Yes. Private Pilates offers one-on-one guidance, while duet
-                  sessions are designed for two people. Contact us to discuss
-                  your goals and availability.
+                  sessions are designed for two people. Private Pilates can be
+                  booked through Rezerv. Enquire with our team about Duet sessions,
+                  or explore Couple Pilates for a shared Reformer class.
                 </p>
-                <a href="/book-a-class">Enquire about a session →</a>
+                <a href={getRezervClassLink('Private Pilates')} target="_blank" rel="noopener noreferrer">Book Private Pilates on Rezerv →</a>
+                <a href={getRezervClassLink('Couple Pilates')} target="_blank" rel="noopener noreferrer">Explore Couple Pilates on Rezerv →</a>
               </div>
             </details>
 
             <details>
-              <summary>How do I enquire about a class?</summary>
+              <summary>How do I book a class?</summary>
               <div className="faq-answer">
                 <p>
-                  Email hello@movelle.ph with the class you are interested in.
-                  Our team can help with availability and the next steps.
+                  Explore our packages, then choose a published session in the
+                  class schedule. Continue on Rezerv and sign in to review the
+                  session and complete your booking. If your chosen session
+                  requires credits, select an eligible package. Use the same
+                  Rezerv account for your purchase and booking.
                 </p>
-                <a href="mailto:hello@movelle.ph?subject=Class%20enquiry">
-                  Email Movelle →
-                </a>
+                <a href="/packages">Explore packages →</a>
+                <a href="/book-a-class#schedule">View the class schedule →</a>
               </div>
             </details>
 

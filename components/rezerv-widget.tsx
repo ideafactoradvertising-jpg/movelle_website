@@ -17,7 +17,7 @@ const widgetUrl = `${widgetOrigin}/timetable?${new URLSearchParams({
   primaryBackground: '#F5F2EC',
   scheduleTabs: JSON.stringify([
     { id: 'classes', label: 'Classes', source: 'classes', visible: true },
-    { id: 'appointments', label: 'Appointments', source: 'appointments', visible: true },
+    { id: 'appointments', label: 'Appointments', source: 'appointments', visible: false },
   ]),
   scheduleViewType: 'list',
   scheduleViewTypeOrder: JSON.stringify(['list', 'grid']),
@@ -25,7 +25,7 @@ const widgetUrl = `${widgetOrigin}/timetable?${new URLSearchParams({
   secondaryBackground: '#EAE5DE',
   showRatings: 'false',
   showSlotsLeft: 'false',
-  showSwitcherTabs: 'true',
+  showSwitcherTabs: 'false',
   solidButtonBackground: '#681F2A',
   solidButtonText: '#F5F2EC',
   subCategory: 'Show all',
@@ -99,7 +99,7 @@ export default function RezervWidget() {
     <iframe
       ref={iframeRef}
       id="rezerv-widget-iframe"
-      title="Movelle class schedule and private-session appointments"
+      title="Movelle class schedule and booking"
       src={responsiveUrl}
       className="rezerv-timetable"
       width="100%"

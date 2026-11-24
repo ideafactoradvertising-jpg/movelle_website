@@ -2,6 +2,7 @@ import Link from 'next/link';
 import ArrowIcon from '@/components/arrow-icon';
 import SocialLinks from '@/components/social-links';
 import { address } from '@/components/content';
+import { rezervAccountUrl, studioPhone, studioPhoneLink, studioWhatsAppUrl } from '@/components/rezerv-links';
 
 export default function Footer() {
   return (
@@ -38,6 +39,8 @@ export default function Footer() {
           >
             hello@movelle.ph <ArrowIcon />
           </a>
+          <a className="footer-detail-link" href={studioPhoneLink}>{studioPhone} <ArrowIcon /></a>
+          <a className="footer-detail-link" href={studioWhatsAppUrl} target="_blank" rel="noopener noreferrer">Chat on WhatsApp <ArrowIcon /></a>
         </section>
       </section>
 
@@ -48,6 +51,7 @@ export default function Footer() {
           aria-label="Website policies"
           style={{ display: 'flex', flexWrap: 'wrap', gap: '12px 24px' }}
         >
+          <a href={rezervAccountUrl} target="_blank" rel="noopener noreferrer">Manage bookings on Rezerv</a>
           <Link href="/privacy-policy">Privacy Policy</Link>
           <Link href="/booking-terms">Booking &amp; Cancellation Terms</Link>
         </nav>

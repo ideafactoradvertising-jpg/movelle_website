@@ -20,6 +20,7 @@ export const offerings = [
 {title:'Red Light Therapy Pilates',group:'Signature experience',text:'Our signature Movelle experience pairs intentional Pilates movement with red light therapy, bringing movement and self-care together in one elevated session.'},
 {title:'Mat Pilates',group:'Pilates',text:'Mindful, full-body movement designed to build strength, stability, flexibility, and body awareness.'},
 {title:'Private Pilates',group:'Personal sessions',text:'One-on-one sessions tailored to your body, movement goals, and experience level.'},
+{title:'Couple Pilates',group:'Pilates together',text:'A 50-minute Reformer session to share with your partner. Limited to two couples, with a maximum of four participants per class.'},
 {title:'Duet Pilates',group:'Personal sessions',text:'A personalized Pilates session designed for two, perfect for partners, friends, or family.'},
 {title:'Pre & Postnatal Pilates',group:'Specialised sessions',text:'Thoughtful movement designed to support women through pregnancy and their return to movement after birth.'},
 {title:'Pilates for Scoliosis',group:'Specialised sessions',text:'Individualized, movement-focused sessions with attention to alignment, control, and each client’s unique needs.'},
